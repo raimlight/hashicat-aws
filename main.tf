@@ -9,7 +9,6 @@ terraform {
 
 provider "aws" {
   region  = var.region
-  Billable = true
 }
 
 resource "aws_vpc" "hashicat" {
@@ -18,7 +17,6 @@ resource "aws_vpc" "hashicat" {
 
   tags = {
     name = "${var.prefix}-vpc-${var.region}"
-    environment = "Production"
   }
 }
 
@@ -129,6 +127,8 @@ resource "aws_instance" "hashicat" {
 
   tags = {
     Name = "${var.prefix}-hashicat-instance"
+    environment = "Production"
+    Billable = true
   }
 }
 
