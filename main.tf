@@ -9,6 +9,7 @@ terraform {
 
 provider "aws" {
   region  = var.region
+  Billable = true
 }
 
 resource "aws_vpc" "hashicat" {
